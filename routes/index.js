@@ -6,3 +6,11 @@ router.get("/", (req, res, next) => {
 });
 
 module.exports = router;
+
+/* GET home page */
+router.get("/", (req, res, next) => {
+  res.render("indexMovies");
+});
+
+module.exports = router;
+

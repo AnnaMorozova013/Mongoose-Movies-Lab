@@ -18,9 +18,9 @@ router.get('/celebrities/add', (req, res, next) => {
 router.get('/celebrities/:id', (req, res, next) => {
     const id = req.params.id
     Celebrity.findById(id)
-        .then(celebrityFromDB => {
-            console.log(celebrityFromDB)
-            res.render('celebrities/details', { celebrity: celebrityFromDB })
+        .then(celebritiesFromDB => {
+            console.log(celebritiesFromDB)
+            res.render('celebrities/details', { celebrity: celebritiesFromDB })
         })
         .catch(err => next(err))
 });
@@ -64,7 +64,7 @@ router.post('/celebrities/edit/:id', (req, res, next) => {
     }, { new: true })
         .then(updatedCelebrity => {
             console.log(updatedCelebrity)
-            res.redirect(`/celebrities/${updatedCelebrity._id}`)
+            res.redirect('/celebrities')
         })
         .catch(err => next(err))
 });
