@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Celebrity = require('./models/Celebrity')
+const Movie = require('./models/Movie')
 
 // open up connection to mongo
 
@@ -29,6 +30,14 @@ Celebrity.insertMany(celebrities)
     .then(celebrities => {
 
         console.log(`Success! - ${celebrities.length} were added to the database`)
+        mongoose.connection.close()
+    })
+    .catch(err => console.log(err))
+
+Movie.insertMany(movies)
+    .then(movies => {
+
+        console.log(`Success! - ${movies.length} were added to the database`)
         mongoose.connection.close()
     })
     .catch(err => console.log(err))
