@@ -10,7 +10,7 @@
 	<input type="text" name="plot" id="plot">
 
     <label for="cast">Cast: </label>
-	<select name='cast'>
+	<select class="cast" multiple data-mdb-placeholder="Add celebrity" multiple>>
 	{{#each celebritiesList}}
 	<option value='{{_id}}'>{{name}}</option>
 	{{/each}}
